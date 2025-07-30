@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# RetroVerse Life Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 **Live Demo**: [Play Now](https://abaeckst.github.io/retroverse-life-counter/)
 
-Currently, two official plugins are available:
+A cyberpunk-themed digital life counter for RetroVerse TCG that tracks boss health, tokens, and priority for 2-4 players.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+✨ **Game Management**
+- Support for 2-4 players with customizable names
+- Adjustable starting boss health (13-20)
+- Initiative randomization and manual priority control
+- Game state persistence with localStorage
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+⚡ **Player Tracking**
+- Boss health with color-coded status indicators
+- Token management with automatic level resets
+- Player elimination and restoration system
+- Active player indication with dramatic visual effects
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🎨 **Cyberpunk Theme**
+- Dark gradient backgrounds with neon accents
+- Player-specific colors (Cyan, Magenta, Green, Yellow)
+- Glowing effects and smooth animations
+- Mobile-responsive design with haptic feedback
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 19** + **TypeScript** for type-safe UI development
+- **Vite** for fast development and optimized builds
+- **Vitest** + **Testing Library** for comprehensive testing
+- **GitHub Actions** for automated CI/CD deployment
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+
+# Lint code
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Requirements
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js 22+ (required for Vite 7)
+- Modern browser with localStorage support
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Game Rules
+
+1. **Setup**: Choose 2-4 players, set starting health, optionally randomize initiative
+2. **Gameplay**: Track boss health and tokens, pass priority between players
+3. **Level Progression**: Advance levels to reset tokens and rotate initiative
+4. **Victory**: Last player standing wins when all others are eliminated
+
+## Architecture
+
+- **State Management**: React Context with reducer pattern
+- **Type Safety**: Complete TypeScript coverage with discriminated unions
+- **Testing**: 22 unit tests covering game logic and state management
+- **Persistence**: Automatic game state saving with quick restart memory
+
+---
+
+Made with ❤️ and **Claude Code**
