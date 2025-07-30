@@ -1,0 +1,221 @@
+.player-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--player-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(var(--player-color), 0.3);
+  font-family: 'Courier New', monospace;
+}
+
+.player-card.active {
+  border-width: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  background: rgba(255, 0, 0, 0.05);
+  box-shadow: 
+    0 0 25px rgba(255, 0, 0, 0.6),
+    0 0 50px rgba(var(--player-color), 0.4);
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    border-color: #ff0000;
+    box-shadow: 
+      0 0 25px rgba(255, 0, 0, 0.6),
+      0 0 50px rgba(var(--player-color), 0.4);
+  }
+  50% { 
+    border-color: var(--player-color);
+    box-shadow: 
+      0 0 35px rgba(255, 0, 0, 0.8),
+      0 0 70px rgba(var(--player-color), 0.6);
+  }
+}
+
+.player-card.eliminated {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  border-color: #666;
+  box-shadow: none;
+}
+
+.player-header {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.player-card.active .player-header:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.player-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--player-color);
+  text-shadow: 0 0 8px var(--player-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.priority-indicator {
+  font-size: 0.8rem;
+  color: #ff0000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 0.25rem;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.player-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+
+.stat-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #aaa;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.stat-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stat-button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--player-color);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--player-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.stat-button:hover:not(:disabled) {
+  background: rgba(var(--player-color), 0.1);
+  box-shadow: 0 0 15px rgba(var(--player-color), 0.5);
+  transform: scale(1.05);
+}
+
+.stat-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.stat-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #666;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  min-width: 80px;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.health-value {
+  color: var(--health-color);
+}
+
+.tokens-value {
+  color: var(--player-color);
+}
+
+.tokens-value.zero {
+  color: #666;
+  opacity: 0.5;
+}
+
+.elimination-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.elimination-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 15px #ff0000;
+  letter-spacing: 2px;
+  transform: rotate(-15deg);
+  animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .player-card {
+    padding: 1rem;
+  }
+  
+  .player-name {
+    font-size: 1.2rem;
+  }
+  
+  .stat-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    min-width: 60px;
+  }
+  
+  .elimination-text {
+    font-size: 1.5rem;
+  }
+  
+  .priority-indicator {
+    font-size: 0.7rem;
+  }
+}
