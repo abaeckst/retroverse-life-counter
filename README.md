@@ -1,6 +1,6 @@
 # RetroVerse Life Counter
 
-🚀 **Live Demo**: [Play Now](https://abaeckst.github.io/retroverse-life-counter/)
+🚀 **Live Demo**: [Play Now](https://abaeckst.github.io/retroverse-life-counter/) | 🎮 **Public Repository**
 
 A cyberpunk-themed digital life counter for RetroVerse TCG that tracks boss health, tokens, and priority for 2-4 players.
 
